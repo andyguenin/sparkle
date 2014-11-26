@@ -1,4 +1,0 @@
-sparkle
-=======
-
-Sparkle
