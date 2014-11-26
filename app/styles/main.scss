@@ -1,0 +1,40 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+// endbower
+
+html,body,.container-fluid,.main-row {
+	height:100%;
+}
+
+.navigation-col {
+	background-color: #555;
+	color: #f0f0f0;
+	height: 100%;
+	
+	.brand {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-weight: 100;
+		font-size: 34px;
+	}
+		 
+	hr {
+    border: 0; border-top: 1px solid #999;
+	}
+}
+
+.navigation {
+	list-style-type: none;
+	padding: 0px;
+	
+	li {
+		padding: 10px;
+		font-weight: 100;
+		font-size: 18px;
+	}
+}
+
+.content {
+	padding: 30px;
+}
