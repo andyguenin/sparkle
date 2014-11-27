@@ -1,0 +1,53 @@
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'sqlite3'
+require 'json'
+
+set :database, {adapter: "sqlite3", database: "server.sqlite3"}
+
+users = {
+  "aguenin" => ['1','2','3','7','8','9','10'],
+  "sfang" => ['4','5','6']
+}
+
+projects = {
+  '1' => "project 1",
+  '2' => "project 2",
+  '3' => "project 3",
+  '4' => "project 4",
+  '5' => "project 5",
+  '6' => "project 6",
+  '7' => "project 7",
+  '8' => "project 8",
+  '9' => "project 9",
+  '10' => "project 10"
+}
+
+def return_or_empty(r,p)
+  if r[p].nil?
+    [].to_s
+  else
+    r[p].to_s
+  end
+end
+
+before do
+   content_type :json  
+   headers 'Access-Control-Allow-Origin' => '*', 
+            'Access-Control-Allow-Methods' => ['GET', 'POST']      
+end
+
+set :protection, false
+
+get '/user/:user/apps' do
+  user_projects = users[params[:user]]
+  if user_projects.nil?
+    [].to_s
+  else
+    user_projects.map {|e| {id: e, title: projects[e]}}.to_json
+  end
+end
+
+get '/apps/:app_id' do
+  return_or_empty(projects, params[:app_id])
+end

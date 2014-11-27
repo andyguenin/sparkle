@@ -1,11 +1,8 @@
 <h1>Recent Activity</h1>
 <div class="row">
-	<div class="col-sm-4">Activity 1</div>
-	<div class="col-sm-4">Activity 2</div>
-	<div class="col-sm-4">Activity 3</div>
-	<div class="col-sm-4">Activity 4</div>
-	<div class="col-sm-4">Activity 5</div>
-	<div class="col-sm-4">Activity 6</div>
-	<div class="col-sm-4">Activity 7</div>
+	
+	<div ng-controller="MainCtrl">
+	    <div class="col-sm-4" ng-repeat="app in apps">{{app.id}} - {{app.title}}</div>
+	</div>
 			
 </div>

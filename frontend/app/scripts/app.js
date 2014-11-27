@@ -17,7 +17,13 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+
+	      $httpProvider.defaults.useXDomain = true;
+
+	      //Remove the header used to identify ajax call  that would prevent CORS from working
+	      delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',

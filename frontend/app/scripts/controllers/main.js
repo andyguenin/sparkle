@@ -8,10 +8,9 @@
  * Controller of the sparkleApp
  */
 angular.module('sparkleApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', function ($scope, $http) {
+		$http.get('http://localhost:4567/user/aguenin/apps')
+		  .success(function(data) {
+				$scope.apps = data;
+		  });
+	  });
