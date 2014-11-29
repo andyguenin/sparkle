@@ -34,7 +34,14 @@ html,body,.container-fluid,.main-row {
 		padding: 15px;
 		font-weight: 100;
 		font-size: 18px;
-	}
+		
+		a {
+			color: #fff;
+		}
+		.glyphicon {
+			margin-right: 20px;
+		}
+	} 
 }
 
 .content {
