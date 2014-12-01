@@ -1,0 +1,21 @@
+<h1>{{globals.name}}'s Applications</h1><br />
+<div class="row">
+	<div class="col-md-4" ng-repeat='d in apps'>
+		<div class="well">
+			<h3>{{d.title}}</h3>
+			<h6>{{d.name}}</h6>
+			<div class='app-summary-description'>
+				{{d.description}}
+			</div>
+			<div class='app-summary-link'>
+				Link: {{backend}}/#/app/{{d.username}}/{{d.title}}
+			</div><br />
+			<div class="text-center">
+				<div class="btn-group">
+					<a ng-href="#/app/{{d.username}}/{{d.title}}" class="btn btn-primary">Launch App</a>
+					<a ng-href="#/app/{{d.username}}/{{d.title}}/edit" class="btn btn-success">Edit App</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

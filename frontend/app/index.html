@@ -30,9 +30,9 @@
 							<div ng-if="globals.username == null">
 							    <li><a ng-href="#/login"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>Login</a></li>
 							</div>
-							<li><a ng-href="#/create"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Create</a></li>
+							<li><a ng-href="#/app/new"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>Create</a></li>
 							<li><span class="glyphicon glyphicon-th" aria-hidden="true"></span>Discover</li>
-							<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>My Apps</li>							
+							<li><a ng-href="#/app/{{globals.username}}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>My Apps</a></li>							
 							<li><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>Settings</li>
 							<li><span class="glyphicon glyphicon-book" aria-hidden="true"></span>Tutorial</li>
 							<div ng-if="globals.username != null">
@@ -41,9 +41,6 @@
 						</ul>
 	        </div>
 	        <div class="col-sm-10 col-lg-10 content">
-						<div ng-if="globals.loggedin">
-							Logged in: {{globals.username}}
-						</div>
 	        	<div ng-view=""></div>
 	        </div>
 	    </div>
@@ -82,11 +79,13 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/logout.js"></script>
-				<script src="scripts/controllers/create.js"></script>
+        <script src="scripts/controllers/static/main.js"></script>
+        <script src="scripts/controllers/static/about.js"></script>
+        <script src="scripts/controllers/user/login.js"></script>
+        <script src="scripts/controllers/user/logout.js"></script>
+				<script src="scripts/controllers/application/create.js"></script>
+				<script src="scripts/controllers/application/edit.js"></script>		
+				<script src="scripts/controllers/application/user.index.js"></script>				
         <!-- endbuild -->
 </body>
 </html>

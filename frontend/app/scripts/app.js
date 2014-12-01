@@ -28,29 +28,42 @@ angular
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/static/main.html',
         controller: 'MainCtrl'
       })
       .when('/about', {
-        templateUrl: 'views/about.html',
+        templateUrl: 'views/static/about.html',
         controller: 'AboutCtrl'
       })
 			.when('/login', {
-				templateUrl: 'views/login.html',
+				templateUrl: 'views/user/login.html',
 				controller: 'LoginCtrl'
 			})
 			.when('/logout', {
-				templateUrl: 'views/logout.html',
+				templateUrl: 'views/user/logout.html',
 				controller: 'LogoutCtrl'
 			})
-			.when('/create', {
-				templateUrl: 'views/create.html',
-				controller: 'CreateCtrl'
+			.when('/app/new', {
+				templateUrl: 'views/application/create.html',
+				controller: 'CreateApplication'
+			})
+			.when('/app/:username/:app/edit', {
+				templateUrl: 'views/application/edit.html',
+				controller: 'EditApplication'
+			})
+			.when('/app/:username', {
+				templateUrl: 'views/application/index.html',
+				controller: 'ShowUserApplication'
 			})
       .otherwise({
         redirectTo: '/'
       });
   })
+	.factory('Backend', function() {
+		return {
+			host: 'http://localhost:4567'
+		};
+	})
 .run(['$rootScope', '$location', '$cookies', '$cookieStore', '$http',
     function ($rootScope, $location, $cookies, $cookieStore, $http) {
         // keep user logged in after page refresh

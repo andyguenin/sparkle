@@ -7,13 +7,14 @@
  * # LoginCtrl
  */
 angular.module('sparkleApp')
-  .controller('LoginCtrl', ['$scope', '$cookieStore', '$http', '$window', '$rootScope', function ($scope, $cookieStore, $http, $window, $rootScope) {
+  .controller('LoginCtrl', ['$scope', '$cookieStore', '$http', '$window', '$rootScope', 'Backend', function ($scope, $cookieStore, $http, $window, $rootScope, b) {
 		$scope.submit = function() {
-			$http.get('http://localhost:4567/')
-			  .success(function() {
+			$http.get(b.host + '/test_user')
+			  .success(function(d) {
 					var s = {};
-					s.username = 'aguenin';
-					s.name = 'Andrew Guenin';
+					console.log(d)
+					s.username = d['username']
+					s.name = d['name']
 					s.loggedin = true;
 					$cookieStore.put('globals',s);
 					$rootScope.globals = s;
